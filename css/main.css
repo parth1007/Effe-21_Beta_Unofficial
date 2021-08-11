@@ -219,7 +219,7 @@ img {
   right: 5%;
   top: 5%;
   width: 90%;
-  height: 90%;
+  height: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 12px;
@@ -234,7 +234,7 @@ img {
 }
 ::-webkit-scrollbar-thumb {
   background-color: #fefefe;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 .sponsor-card {
   height: 280px;
@@ -1354,7 +1354,7 @@ form .inputs-description {
 
 .header .logo img {
   display: block;
-  width: auto;
+  width: 75px;
   height: auto;
   position: absolute;
   left: 50%;
@@ -3652,13 +3652,3 @@ form .inputs-description {
 /* ------------------------------------------------*/
 /* Gallery Custom Styles End */
 /* ------------------------------------------------*/
-
-.sponsor-card-inner{
-  
-  height: 280px;
-  width: 100%;
-  display: grid;
-  grid-template-rows: 120px 60px 40px;
-  margin-bottom: 30px;
-  border-radius: 10%;
-}
