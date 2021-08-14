@@ -117,7 +117,7 @@ const paginateCircle = () => {
     cursor: pointer;
     top: ${window.innerHeight / 2 - (20 * (slideLength - i)) / 2 + i * 20}px;
     z-index = 200;
-    transition : 0.7s ease-in-out;
+    transition : 0.5s ease;
     
     "/>
     `;
@@ -143,8 +143,8 @@ window.addEventListener("resize", paginateCircle);
 
 paginateCircle();
 
-const circles = document.querySelectorAll(".circle");
 const changeCircleColor = () => {
+  const circles = document.querySelectorAll(".circle");
   for (let i = 0; i < slideLength; ++i) {
     circles[i].style.backgroundColor =
       i === activeSlideIndex ? "white" : "grey";
