@@ -16,21 +16,22 @@
     height: 65%;
     top: 25%;
 }
+
 .gal-heading
 {
     position: absolute;
     top: 5%;
     margin: 0;
-    position: absolute;
     color: turquoise;
-    left: 10%;
+    left: 30%;
+    
 }
 .gal-p{
     margin: 0;
     position: absolute;
     color: turquoise;
     top: 15%;
-    left: 10%;
+    left: 35%;
     font-size: 2.5rem !important;
 }
 
@@ -120,4 +121,37 @@
     border-bottom-right-radius: 5px;
     z-index: -17;
     display: none;
+  }
+
+  .in_view_left{
+  transform: translateX(-200%);
+  animation: pop-left 1s ease-out;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+.in_view_right{
+  transform: translateX(200%);
+  animation: pop-right 1s ease-out;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+  @keyframes pop-left{
+    0%{
+      transform: translateX(-200%);
+    }
+    100%{
+      transform: translateX(0%);
+
+    }
+  }
+
+  @keyframes pop-right{
+    0%{
+      transform: translateX(200%);
+    }
+    100%{
+      transform: translateX(0%);
+
+    }
   }
