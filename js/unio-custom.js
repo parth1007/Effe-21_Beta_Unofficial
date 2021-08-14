@@ -30,6 +30,127 @@
 // Table of Contents End
 // ------------------------------------------------
 
+/**
+ * Slider Starts
+ */
+const sliderContainer = document.querySelector(".slider-container");
+
+const slideRight = document.querySelector(".right-slide");
+const slideLeft = document.querySelector(".left-slide");
+
+const upButton = document.querySelector(".up-button");
+const downButton = document.querySelector(".down-button");
+
+const paginate = document.querySelector(".paginate");
+
+const slideLength = document.querySelectorAll(".right-slide div").length;
+let activeSlideIndex = 0;
+
+const gallerySection = document.querySelector(".gallery-section");
+
+slideLeft.style.top = `-${(slideLength - 1) * 100}vh`;
+
+upButton.addEventListener("click", () => changeSlide("up"));
+downButton.addEventListener("click", () => changeSlide("down"));
+
+const changeSlide = (direction) => {
+  const slideHeight = sliderContainer.clientHeight;
+  if (direction === "up") {
+    activeSlideIndex++;
+    if (activeSlideIndex > slideLength - 1) {
+      activeSlideIndex = 0;
+    }
+  } else if (direction === "down") {
+    activeSlideIndex--;
+    if (activeSlideIndex < 0) {
+      activeSlideIndex = slideLength - 1;
+    }
+  }
+  slideRight.style.transform = `translateY(-${
+    activeSlideIndex * slideHeight
+  }px)`;
+  slideLeft.style.transform = `translateY(${activeSlideIndex * slideHeight}px)`;
+  paginateCircle();
+  upButton.disabled = true;
+  downButton.disabled = true;
+  setTimeout(() => {
+    upButton.disabled = false;
+    downButton.disabled = false;
+  }, 1000);
+};
+
+// Listen for scroll events
+
+gallerySection.addEventListener("wheel", function (event) {
+  if (event.deltaY < 0) {
+    downButton.click();
+  } else if (event.deltaY > 0) {
+    upButton.click();
+  }
+});
+/**
+ * Slider Ends
+ */
+const paginateCircle = () => {
+  paginate.innerHTML = "";
+  for (let i = 0; i < slideLength; ++i) {
+    paginate.innerHTML += `
+    <div class="circle" 
+    style = "
+    ${
+      i === activeSlideIndex
+        ? `
+      background-color: white;
+      
+      `
+        : `
+      background-color: grey;
+      
+      
+      `
+    }
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    right: 1%;
+    cursor: pointer;
+    top: ${window.innerHeight / 2 - (20 * (slideLength - i)) / 2 + i * 20}px;
+    z-index = 200;
+    transition : 0.7s ease-in-out;
+    
+    "/>
+    `;
+  }
+  const circles = document.querySelectorAll(".circle");
+
+  for (let i = 0; i < circles.length; i++) {
+    circles[i].addEventListener("click", () => {
+      const slideHeight = sliderContainer.clientHeight;
+
+      activeSlideIndex = i;
+      slideRight.style.transform = `translateY(-${
+        activeSlideIndex * slideHeight
+      }px)`;
+      slideLeft.style.transform = `translateY(${
+        activeSlideIndex * slideHeight
+      }px)`;
+      changeCircleColor();
+    });
+  }
+};
+window.addEventListener("resize", paginateCircle);
+
+paginateCircle();
+
+const circles = document.querySelectorAll(".circle");
+const changeCircleColor = () => {
+  for (let i = 0; i < slideLength; ++i) {
+    circles[i].style.backgroundColor =
+      i === activeSlideIndex ? "white" : "grey";
+  }
+};
+/////////////////////////////////////////////////////////////////////////
 $(window).on("load", function () {
   "use strict";
 
