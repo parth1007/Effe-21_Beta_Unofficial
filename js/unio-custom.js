@@ -100,7 +100,7 @@ const paginateCircle = () => {
     ${
       i === activeSlideIndex
         ? `
-      background-color: white;
+      background-color: #c48f56;
       
       `
         : `
@@ -109,8 +109,8 @@ const paginateCircle = () => {
       
       `
     }
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     position: absolute;
     right: 1%;
@@ -147,7 +147,7 @@ const changeCircleColor = () => {
   const circles = document.querySelectorAll(".circle");
   for (let i = 0; i < slideLength; ++i) {
     circles[i].style.backgroundColor =
-      i === activeSlideIndex ? "white" : "grey";
+      i === activeSlideIndex ? "#c48f56" : "grey";
   }
 };
 /////////////////////////////////////////////////////////////////////////

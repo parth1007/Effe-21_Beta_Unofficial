@@ -1,0 +1,123 @@
+.left-slide
+{
+    width: 50%;
+}
+.right-slide
+{
+    width: 50%;
+    left: 50%;
+}
+
+.gal-img
+{
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    height: 65%;
+    top: 25%;
+}
+.gal-heading
+{
+    position: absolute;
+    top: 5%;
+    margin: 0;
+    position: absolute;
+    color: turquoise;
+    left: 10%;
+}
+.gal-p{
+    margin: 0;
+    position: absolute;
+    color: turquoise;
+    top: 15%;
+    left: 10%;
+    font-size: 2.5rem !important;
+}
+
+.gal-card
+{
+    position: relative;
+}
+.gal-img-right
+{
+    position: absolute;
+   ;
+    width: 80%;
+    /* left: 5%;
+    top: 25%; */
+}
+
+
+
+
+
+.gallery-section {
+    width: 93%;
+    position: absolute;
+    right: 0;
+    height: 100%;
+  }
+  
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    left: -7px;
+    width: calc(100vw - 100px);
+    height: 100vh;
+  }
+  .left-slide {
+    height: 100vh;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.7s ease-in-out;
+  }
+  
+  .left-slide > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .right-slide {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    transition: transform 0.7s ease-in-out;
+  }
+  .right-slide > div {
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slider-container .action-buttons button {
+    position: absolute;
+    left: 35%;
+    top: 45%;
+    z-index: -17;
+    display: none;
+  }
+  .slider-container .action-buttons .down-button {
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    z-index: -17;
+    display: none;
+  }
+  .slider-container .action-buttons .up-button {
+    transform: translateY(-100%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: -17;
+    display: none;
+  }
