@@ -135,7 +135,7 @@ const changeSlide = (direction) => {
   }px)`;
   slideLeft.style.transform = `translateY(${activeSlideIndex * slideHeight}px)`;
   paginateCircle();
-  SlideIn()
+  SlideIn();
   upButton.disabled = true;
   downButton.disabled = true;
   setTimeout(() => {
@@ -169,39 +169,6 @@ const rp3 = document.querySelector(".rp3");
 const rp4 = document.querySelector(".rp4");
 const rp5 = document.querySelector(".rp5");
 
-const SlideIn = () => {
-  if(activeSlideIndex === 0) {
-    lh1.classList.add("in_view_left");
-    rh1.classList.add("in_view_right");
-    lp1.classList.add("in_view_left");
-    rp1.classList.add("in_view_right");
-  }
-  else if(activeSlideIndex === 1) {
-    lh2.classList.add("in_view_left");
-    rh2.classList.add("in_view_right");
-    lp2.classList.add("in_view_left");
-    rp2.classList.add("in_view_right");
-  }
-  else if(activeSlideIndex === 2){
-    lh3.classList.add("in_view_left");
-    rh3.classList.add("in_view_right");
-    lp3.classList.add("in_view_left");
-    rp3.classList.add("in_view_right");
-  }
-  else if(activeSlideIndex === 3){
-    lh4.classList.add("in_view_left");
-    rh4.classList.add("in_view_right");
-    lp4.classList.add("in_view_left");
-    rp4.classList.add("in_view_right");
-  }
-  else if(activeSlideIndex === 4){
-    lh5.classList.add("in_view_left");
-    rh5.classList.add("in_view_right");
-    lp5.classList.add("in_view_left");
-    rp5.classList.add("in_view_right");
-  }
-  
-}
 
 gallerySection.addEventListener("wheel", function (event) {
   if (event.deltaY < 0) {
@@ -258,7 +225,8 @@ const paginateCircle = () => {
         activeSlideIndex * slideHeight
       }px)`;
       changeCircleColor();
-      addTextPop();
+      addTextPop(-p);
+
     });
   }
 };
@@ -271,8 +239,44 @@ const changeCircleColor = () => {
   for (let i = 0; i < slideLength; ++i) {
     circles[i].style.backgroundColor =
       i === activeSlideIndex ? "#c48f56" : "grey";
+      if(activeSlideIndex===0) lh1.style.animation ="pop-left 1s ease-out";
   }
 };
+
+const SlideIn = () => {
+  if(activeSlideIndex === 0) {
+    lh1.classList.add("in_view_left");
+    rh1.classList.add("in_view_right");
+    lp1.classList.add("in_view_left-p");
+    rp1.classList.add("in_view_right-p");
+  }
+  else if(activeSlideIndex === 1) {
+    lh2.classList.add("in_view_left");
+    rh2.classList.add("in_view_right");
+    lp2.classList.add("in_view_left-p");
+    rp2.classList.add("in_view_right-p");
+  }
+  else if(activeSlideIndex === 2){
+    lh3.classList.add("in_view_left");
+    rh3.classList.add("in_view_right");
+    lp3.classList.add("in_view_left-p");
+    rp3.classList.add("in_view_right-p");
+  }
+  else if(activeSlideIndex === 3){
+    lh4.classList.add("in_view_left");
+    rh4.classList.add("in_view_right");
+    lp4.classList.add("in_view_left-p");
+    rp4.classList.add("in_view_right-p");
+  }
+  else if(activeSlideIndex === 4){
+    lh5.classList.add("in_view_left");
+    rh5.classList.add("in_view_right");
+    lp5.classList.add("in_view_left-p");
+    rp5.classList.add("in_view_right-p");
+  }
+  
+}
+
 
 // const addTextPop = () => {
 

@@ -1,4 +1,4 @@
-.left-slide
+l.left-slide
 {
     width: 50%;
 }
@@ -11,28 +11,32 @@
 .gal-img
 {
     position: absolute;
-    width: 80%;
-    left: 10%;
-    height: 65%;
-    top: 25%;
+    width: 70%;
+    left: 15%;
+    height: 45%;
+    top: 32%;
+    z-index:2;
+    animation: wobble 10s ease-in-out infinite;
+   
+    transform: translateZ(80%);
 }
 
 .gal-heading
 {
     position: absolute;
-    top: 5%;
     margin: 0;
-    color: turquoise;
-    left: 30%;
-    
+    color: #fff;
+    font-size: 5.5rem;
 }
 .gal-p{
     margin: 0;
     position: absolute;
-    color: turquoise;
+    color: rgba(255, 255, 255, 0.6);
     top: 15%;
     left: 35%;
-    font-size: 2.5rem !important;
+    font-size: 7rem !important;
+    font-weight: 500;
+    
 }
 
 .gal-card
@@ -42,16 +46,35 @@
 .gal-img-right
 {
     position: absolute;
-   ;
-    width: 80%;
-    /* left: 5%;
+   top:22%;
+   /* left: 5%;
     top: 25%; */
+}
+.rh1, .rh2, .rh3, .rh4, .rh5
+{
+  top : 75%;
+  right: 15%;
+}
+.lh1,.lh2,.lh3,.lh4,.lh5{
+  
+  top: 15%;
+  left: 15%;  
+}
+
+.rp1,.rp2,.rp3,.rp4,.rp5
+{
+  left:40%;
+  top:12.2%;
+
 }
 
 
-
-
-
+.lp1,.lp2,.lp3,.lp4,.lp5{
+  
+  top: 75%;
+  left: 39.5%;
+ 
+}
 .gallery-section {
     width: 93%;
     position: absolute;
@@ -136,6 +159,19 @@
   animation-fill-mode: forwards;
 }
 
+.in_view_left-p{
+  transform: translateX(-300%);
+  animation: pop-left 1s ease-out;
+  animation-delay: 1.7s;
+  animation-fill-mode: forwards;
+}
+.in_view_right-p{
+  transform: translateX(300%);
+  animation: pop-right 1s ease-out;
+  animation-delay: 1.7s;
+  animation-fill-mode: forwards;
+}
+
   @keyframes pop-left{
     0%{
       transform: translateX(-200%);
@@ -155,3 +191,34 @@
 
     }
   }
+  @keyframes pop-left-p{
+    0%{
+      transform: translateX(-300%);
+    }
+    100%{
+      transform: translateX(0%);
+
+    }
+  }
+
+  @keyframes pop-right-p{
+    0%{
+      transform: translateX(300%);
+    }
+    100%{
+      transform: translateX(0%);
+
+    }
+  }
+  @keyframes wobble{
+    0%{
+      transform: translateY(0%);
+    }
+    50%{
+      transform: translateY(7%);
+    }
+    100%{
+      transform: translateY(0%);
+    }
+  }
+ 
