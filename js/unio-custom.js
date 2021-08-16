@@ -33,261 +33,183 @@
 /**
  * Slider Starts
  */
+if (window.innerWidth > 900) {
+  const sliderContainer = document.querySelector(".slider-container");
 
- $(window).scroll(function(){
-  if ($(this).scrollTop() > 50) {
-     $('.gal-heading').addClass('in_view');
-  } else {
-     $('.gal-heading').removeClass('in_view');
-  }
-});
+  const slideRight = document.querySelector(".right-slide");
+  const slideLeft = document.querySelector(".left-slide");
 
+  const upButton = document.querySelector(".up-button");
+  const downButton = document.querySelector(".down-button");
 
-//  var $anima = $('.gal-heading');
-//  var $window = $(window);
-//  var bounding = anima.getBoundingClientRect();
-//  function check_if_in_view() {
-//   if (
-//     bounding.top >= 0 &&
-//     bounding.left >= 0 &&
-//     bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-//     bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-//   ) {
-//     $element.addClass('in-view');
-//   } else {
-//     $element.removeClass('in-view');
-//   }
-// }
+  const paginate = document.querySelector(".paginate");
+
+  const slideLength = document.querySelectorAll(".right-slide div").length;
+  let activeSlideIndex = 0;
+
+  const gallerySection = document.querySelector(".gallery-section");
+
+  slideLeft.style.top = `-${(slideLength - 1) * 100}vh`;
+
+  upButton.addEventListener("click", () => changeSlide("up"));
+  downButton.addEventListener("click", () => changeSlide("down"));
+
+  const changeSlide = (direction) => {
+    const slideHeight = sliderContainer.clientHeight;
+    if (direction === "up") {
+      activeSlideIndex++;
+      if (activeSlideIndex > slideLength - 1) {
+        activeSlideIndex = 0;
+      }
+    } else if (direction === "down") {
+      activeSlideIndex--;
+      if (activeSlideIndex < 0) {
+        activeSlideIndex = slideLength - 1;
+      }
+    }
+    slideRight.style.transform = `translateY(-${
+      activeSlideIndex * slideHeight
+    }px)`;
+    slideLeft.style.transform = `translateY(${
+      activeSlideIndex * slideHeight
+    }px)`;
+    paginateCircle();
+    SlideIn();
+    upButton.disabled = true;
+    downButton.disabled = true;
+    setTimeout(() => {
+      upButton.disabled = false;
+      downButton.disabled = false;
+    }, 1000);
+  };
+
+  // Listen for scroll events
+  const lh1 = document.querySelector(".lh1");
+  const lh2 = document.querySelector(".lh2");
+  const lh3 = document.querySelector(".lh3");
+  const lh4 = document.querySelector(".lh4");
+  const lh5 = document.querySelector(".lh5");
+
+  const rh1 = document.querySelector(".rh1");
+  const rh2 = document.querySelector(".rh2");
+  const rh3 = document.querySelector(".rh3");
+  const rh4 = document.querySelector(".rh4");
+  const rh5 = document.querySelector(".rh5");
+
+  const lp1 = document.querySelector(".lp1");
+  const lp2 = document.querySelector(".lp2");
+  const lp3 = document.querySelector(".lp3");
+  const lp4 = document.querySelector(".lp4");
+  const lp5 = document.querySelector(".lp5");
+
+  const rp1 = document.querySelector(".rp1");
+  const rp2 = document.querySelector(".rp2");
+  const rp3 = document.querySelector(".rp3");
+  const rp4 = document.querySelector(".rp4");
+  const rp5 = document.querySelector(".rp5");
+
+  gallerySection.addEventListener("wheel", function (event) {
+    if (event.deltaY < 0) {
+      downButton.click();
+    } else if (event.deltaY > 0) {
+      upButton.click();
+    }
+  });
+  /**
+   * Slider Ends
+   */
+  const paginateCircle = () => {
+    paginate.innerHTML = "";
+    for (let i = 0; i < slideLength; ++i) {
+      paginate.innerHTML += `
+      <div class="circle"
+      style = "
+      ${
+        i === activeSlideIndex
+          ? `
+        background-color: #c48f56;
   
-//     //  //check to see if this current container is within viewport
-//     //  if ((element_bottom_position >= window_top_position) &&
-//     //      (element_top_position <= window_bottom_position)) {
-      
-//     //  } else {
-       
-//     //  }
-   
- 
-//  $window.on('scroll resize', check_if_in_view);
-//  $window.trigger('scroll');
- 
-
-
-
-
-
-
-
-// $(document).ready(function() {
-
-// $('.gal-heading').waypoint(function() {
-
-// $('.gal-heading').css({
-
-// animation: "pop 2s",
-
-// opacity: "1"
-
-// });
-
-// }, { offset: '75%' });
-// });
-
-
-
-
-
-const sliderContainer = document.querySelector(".slider-container");
-
-const slideRight = document.querySelector(".right-slide");
-const slideLeft = document.querySelector(".left-slide");
-
-const upButton = document.querySelector(".up-button");
-const downButton = document.querySelector(".down-button");
-
-const paginate = document.querySelector(".paginate");
-
-const slideLength = document.querySelectorAll(".right-slide div").length;
-let activeSlideIndex = 0;
-
-const gallerySection = document.querySelector(".gallery-section");
-
-slideLeft.style.top = `-${(slideLength - 1) * 100}vh`;
-
-upButton.addEventListener("click", () => changeSlide("up"));
-downButton.addEventListener("click", () => changeSlide("down"));
-
-const changeSlide = (direction) => {
-  const slideHeight = sliderContainer.clientHeight;
-  if (direction === "up") {
-    activeSlideIndex++;
-    if (activeSlideIndex > slideLength - 1) {
-      activeSlideIndex = 0;
+        `
+          : `
+        background-color: grey;
+  
+  
+        `
+      }
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      right: 1%;
+      cursor: pointer;
+      top: ${window.innerHeight / 2 - (20 * (slideLength - i)) / 2 + i * 20}px;
+      z-index = 200;
+      transition : 0.5s ease;
+  
+      "/>
+      `;
     }
-  } else if (direction === "down") {
-    activeSlideIndex--;
-    if (activeSlideIndex < 0) {
-      activeSlideIndex = slideLength - 1;
+    const circles = document.querySelectorAll(".circle");
+
+    for (let i = 0; i < circles.length; i++) {
+      circles[i].addEventListener("click", () => {
+        const slideHeight = sliderContainer.clientHeight;
+
+        activeSlideIndex = i;
+        slideRight.style.transform = `translateY(-${
+          activeSlideIndex * slideHeight
+        }px)`;
+        slideLeft.style.transform = `translateY(${
+          activeSlideIndex * slideHeight
+        }px)`;
+        changeCircleColor();
+        SlideIn();
+      });
     }
-  }
-  slideRight.style.transform = `translateY(-${
-    activeSlideIndex * slideHeight
-  }px)`;
-  slideLeft.style.transform = `translateY(${activeSlideIndex * slideHeight}px)`;
+  };
+  window.addEventListener("resize", paginateCircle);
+
   paginateCircle();
-  SlideIn();
-  upButton.disabled = true;
-  downButton.disabled = true;
-  setTimeout(() => {
-    upButton.disabled = false;
-    downButton.disabled = false;
-  }, 1000);
-};
 
-// Listen for scroll events
-const lh1 = document.querySelector(".lh1");
-const lh2 = document.querySelector(".lh2");
-const lh3 = document.querySelector(".lh3");
-const lh4 = document.querySelector(".lh4");
-const lh5 = document.querySelector(".lh5");
-
-const rh1 = document.querySelector(".rh1");
-const rh2 = document.querySelector(".rh2");
-const rh3 = document.querySelector(".rh3");
-const rh4 = document.querySelector(".rh4");
-const rh5 = document.querySelector(".rh5");
-
-const lp1 = document.querySelector(".lp1");
-const lp2 = document.querySelector(".lp2");
-const lp3 = document.querySelector(".lp3");
-const lp4 = document.querySelector(".lp4");
-const lp5 = document.querySelector(".lp5");
-
-const rp1 = document.querySelector(".rp1");
-const rp2 = document.querySelector(".rp2");
-const rp3 = document.querySelector(".rp3");
-const rp4 = document.querySelector(".rp4");
-const rp5 = document.querySelector(".rp5");
-
-
-gallerySection.addEventListener("wheel", function (event) {
-  if (event.deltaY < 0) {
-    downButton.click();
-  } else if (event.deltaY > 0) {
-    upButton.click();
-  }
-});
-/**
- * Slider Ends
- */
-const paginateCircle = () => {
-  paginate.innerHTML = "";
-  for (let i = 0; i < slideLength; ++i) {
-    paginate.innerHTML += `
-    <div class="circle" 
-    style = "
-    ${
-      i === activeSlideIndex
-        ? `
-      background-color: #c48f56;
-      
-      `
-        : `
-      background-color: grey;
-      
-      
-      `
+  const changeCircleColor = () => {
+    const circles = document.querySelectorAll(".circle");
+    for (let i = 0; i < slideLength; ++i) {
+      circles[i].style.backgroundColor =
+        i === activeSlideIndex ? "#c48f56" : "grey";
     }
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    position: absolute;
-    right: 1%;
-    cursor: pointer;
-    top: ${window.innerHeight / 2 - (20 * (slideLength - i)) / 2 + i * 20}px;
-    z-index = 200;
-    transition : 0.5s ease;
-    
-    "/>
-    `;
-  }
-  const circles = document.querySelectorAll(".circle");
+  };
 
-  for (let i = 0; i < circles.length; i++) {
-    circles[i].addEventListener("click", () => {
-      const slideHeight = sliderContainer.clientHeight;
-
-      activeSlideIndex = i;
-      slideRight.style.transform = `translateY(-${
-        activeSlideIndex * slideHeight
-      }px)`;
-      slideLeft.style.transform = `translateY(${
-        activeSlideIndex * slideHeight
-      }px)`;
-      changeCircleColor();
-      addTextPop(-p);
-
-    });
-  }
-};
-window.addEventListener("resize", paginateCircle);
-
-paginateCircle();
-
-const changeCircleColor = () => {
-  const circles = document.querySelectorAll(".circle");
-  for (let i = 0; i < slideLength; ++i) {
-    circles[i].style.backgroundColor =
-      i === activeSlideIndex ? "#c48f56" : "grey";
-      if(activeSlideIndex===0) lh1.style.animation ="pop-left 1s ease-out";
-  }
-};
-
-const SlideIn = () => {
-  if(activeSlideIndex === 0) {
-    lh1.classList.add("in_view_left");
-    rh1.classList.add("in_view_right");
-    lp1.classList.add("in_view_left-p");
-    rp1.classList.add("in_view_right-p");
-  }
-  else if(activeSlideIndex === 1) {
-    lh2.classList.add("in_view_left");
-    rh2.classList.add("in_view_right");
-    lp2.classList.add("in_view_left-p");
-    rp2.classList.add("in_view_right-p");
-  }
-  else if(activeSlideIndex === 2){
-    lh3.classList.add("in_view_left");
-    rh3.classList.add("in_view_right");
-    lp3.classList.add("in_view_left-p");
-    rp3.classList.add("in_view_right-p");
-  }
-  else if(activeSlideIndex === 3){
-    lh4.classList.add("in_view_left");
-    rh4.classList.add("in_view_right");
-    lp4.classList.add("in_view_left-p");
-    rp4.classList.add("in_view_right-p");
-  }
-  else if(activeSlideIndex === 4){
-    lh5.classList.add("in_view_left");
-    rh5.classList.add("in_view_right");
-    lp5.classList.add("in_view_left-p");
-    rp5.classList.add("in_view_right-p");
-  }
-  
+  const SlideIn = () => {
+    if (activeSlideIndex === 0) {
+      lh1.classList.add("in_view_left");
+      rh1.classList.add("in_view_right");
+      lp1.classList.add("in_view_left-p");
+      rp1.classList.add("in_view_right-p");
+    } else if (activeSlideIndex === 1) {
+      lh2.classList.add("in_view_left");
+      rh2.classList.add("in_view_right");
+      lp2.classList.add("in_view_left-p");
+      rp2.classList.add("in_view_right-p");
+    } else if (activeSlideIndex === 2) {
+      lh3.classList.add("in_view_left");
+      rh3.classList.add("in_view_right");
+      lp3.classList.add("in_view_left-p");
+      rp3.classList.add("in_view_right-p");
+    } else if (activeSlideIndex === 3) {
+      lh4.classList.add("in_view_left");
+      rh4.classList.add("in_view_right");
+      lp4.classList.add("in_view_left-p");
+      rp4.classList.add("in_view_right-p");
+    } else if (activeSlideIndex === 4) {
+      lh5.classList.add("in_view_left");
+      rh5.classList.add("in_view_right");
+      lp5.classList.add("in_view_left-p");
+      rp5.classList.add("in_view_right-p");
+    }
+  };
 }
 
-
-// const addTextPop = () => {
-
-//   const gallleryH2 = document.querySelectorAll(".gal-heading");
-//   for (let i = 0; i < slideLength; ++i) {
-//     gallleryH2[i].style.fontWeight =
-//       i === activeSlideIndex ? "1000" : "200";
-//   }
-// }
 /////////////////////////////////////////////////////////////////////////
-
 
 $(window).on("load", function () {
   "use strict";
