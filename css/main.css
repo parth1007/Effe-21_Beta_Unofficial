@@ -234,6 +234,31 @@ body {
   background-color: #061125;
 }
 
+.aboutUS{
+color: #ffffff;
+    background: -webkit-linear-gradient(
+0deg, #fc466b 0%, #00dbde 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    font: normal 500 4.8rem/1 "Oswald", serif;
+    text-transform: uppercase;
+}
+
+.pic{
+  width: 600px;
+  height:620px;
+}
+
+
+p.para{
+  color: #ffffff;
+  font-size: 15px;
+  padding-left: 120px;
+}
+
 section {
   position: relative;
   min-width: 320px;
