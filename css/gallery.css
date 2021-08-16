@@ -229,6 +229,8 @@
   height: 100%;
   width: 90%;
   margin-top: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 @media screen and (max-width: 900px) {
   .gallery-section {
@@ -236,5 +238,13 @@
   }
   .gallery-mobile {
     display: block;
+  }
+  .gallery-mobile div {
+    margin-bottom: 60px;
+  }
+  .gallery-mobile img {
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    filter: drop-shadow(5px 10px 10px #68687e);
   }
 }
