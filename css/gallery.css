@@ -27,23 +27,6 @@
   flex-direction: column;
   justify-content: center;
 }
-.lh1,
-.lh2,
-.lh3,
-.lh4,
-.lh5 {
-  top: 15%;
-  left: 15%;
-}
-
-.lp1,
-.lp2,
-.lp3,
-.lp4,
-.lp5 {
-  top: 75%;
-  left: 39.5%;
-}
 
 .right-slide {
   height: 100%;
@@ -55,71 +38,54 @@
 }
 
 .right-slide div {
-  /* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center; */
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.rh1,
-.rh2,
-.rh3,
-.rh4,
-.rh5 {
-  top: 75%;
-  right: 15%;
-}
 
-.rp1,
-.rp2,
-.rp3,
-.rp4,
-.rp5 {
-  left: 40%;
-  top: 10%;
-}
 .gal-img {
   position: absolute;
   width: 70%;
   left: 15%;
-  height: 45%;
-  top: 32%;
+  top: 25%;
   z-index: 2;
+  filter: drop-shadow(5px 5px 20px #222246);
+  transform: translateZ(80%);
   animation: wobble 8s ease-in-out infinite;
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  transform: translateZ(80%);
-  filter: drop-shadow(5px 5px 20px #222246);
 }
 
 .gal-heading {
   position: absolute;
-  margin: 0;
+  top: 10%;
+  left: 25%;
   color: #fff;
   font-size: 5.5rem;
+  justify-content: center;
+  z-index: 10;
 }
 .gal-p {
-  margin: 0;
   position: absolute;
   color: rgba(255, 255, 255, 0.6);
-  top: 15%;
-  left: 35%;
-  font-size: 7rem !important;
+  bottom: 10%;
+  left: 25%;
+  font-size: 7rem;
   font-weight: 500;
+  z-index: 5;
 }
 
 .gal-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .gal-img-right {
   position: absolute;
-  top: 22%;
+  top: 25%;
   filter: drop-shadow(5px 5px 20px #061125);
-  /* left: 5%;
-    top: 25%; */
 }
 
 .slider-container .action-buttons button {
@@ -231,6 +197,31 @@
   margin-top: 100px;
   margin-left: 5%;
   margin-right: 5%;
+}
+@media screen and (max-width: 1200px) {
+  .gallery-section {
+    width: 100vw;
+    position: absolute;
+    top: 100px;
+    height: 90%;
+  }
+  .gal-img {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: 180px;
+  }
+
+  .gal-heading {
+    position: absolute;
+    top: 130px;
+    left: 25%;
+  }
+  .gal-p {
+    position: absolute;
+    bottom: 5%;
+    left: 25%;
+  }
 }
 @media screen and (max-width: 900px) {
   .gallery-section {
