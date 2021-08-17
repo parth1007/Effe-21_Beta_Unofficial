@@ -2,7 +2,6 @@
   width: calc(100vw - 100px);
   position: absolute;
   right: 0;
-  height: 100%;
 }
 
 .slider-container {
@@ -79,7 +78,7 @@
   font-size: 5rem;
   justify-content: center;
   z-index: 10;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .gal-p {
   position: absolute;
@@ -89,7 +88,7 @@
   font-size: 7rem;
   font-weight: 500;
   z-index: 5;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .gal-card {
@@ -123,40 +122,37 @@
   display: none;
 }
 
-.lh{
+.lh {
   top: 15%;
-  left: 15%; 
+  left: 15%;
 }
-.lh3{
-  font-size:4.5rem;
+.lh3 {
+  font-size: 4.5rem;
 }
 
-.rh{
+.rh {
   top: 75%;
   left: 32%;
 }
-.rh4
-{
-  width:80%;
-  
-  
-  font-size:4.5rem;
+.rh4 {
+  width: 80%;
 
+  font-size: 4.5rem;
 }
-.rh5{
-  left:36%;
+.rh5 {
+  left: 36%;
 }
-.lh5{
+.lh5 {
   font-size: 4rem;
 }
 
-.lp{
+.lp {
   top: 72.7%;
   left: 59.5%;
 }
-.rp{
-  left:18%;
-  top:12.2%;
+.rp {
+  left: 18%;
+  top: 12.2%;
 }
 
 .in_view_left {
@@ -185,7 +181,7 @@
   animation-fill-mode: forwards;
 }
 
- /*------------------------------------------- KeyFrames---------------------------------- */
+/*------------------------------------------- KeyFrames---------------------------------- */
 
 @keyframes pop-left {
   0% {
@@ -245,42 +241,32 @@
   }
 }
 
-
-@keyframes fade_in
-{
-  0%
-  {
-    opacity:0;
+@keyframes fade_in {
+  0% {
+    opacity: 0;
   }
-  20%
-  {
-    opacity:0;
+  20% {
+    opacity: 0;
   }
-  100%
-  {
-    opacity:1;
+  100% {
+    opacity: 1;
   }
 }
-@keyframes col-change
-{
-  0%
-  {
+@keyframes col-change {
+  0% {
     background-color: #061125;
   }
-  20%{
-    background-color: #061125
+  20% {
+    background-color: #061125;
   }
-  100%
-  {
+  100% {
     background-color: #444444;
   }
 }
 
+/*------------------------------------------- KeyFrames-End -------------------------------------- */
 
- /*------------------------------------------- KeyFrames-End -------------------------------------- */
-
- /*------------------------------------------- Responsive CSS -------------------------------------- */
-
+/*------------------------------------------- Responsive CSS -------------------------------------- */
 
 .gallery-mobile {
   display: none;
@@ -291,11 +277,11 @@
   margin-right: 5%;
 }
 
-@media screen and (max-width: 1200px) and (min-width:901px) {
+@media screen and (max-width: 1200px) and (min-width: 901px) {
   .gallery-section {
     width: 100vw;
     position: absolute;
-    top:100px;
+    top: 100px;
     height: calc(100% - 100px);
   }
   .gal-img {
@@ -304,15 +290,15 @@
     left: 15%;
     top: 15%;
   }
-  .gal-img-right{
-    top:10%;
+  .gal-img-right {
+    top: 10%;
   }
 
   .gal-heading {
     position: absolute;
     top: 130px;
     left: 25%;
-    width:80%;
+    width: 80%;
     font-size: 4rem;
   }
   .gal-p {
@@ -320,29 +306,25 @@
     bottom: 5%;
     left: 25%;
   }
-  .lh{
-    top:7%;
+  .lh {
+    top: 7%;
     left: 15%;
   }
-  .rh{
-    top:32%;
-    left:30%;
+  .rh {
+    top: 32%;
+    left: 30%;
   }
-  .lp{
-    top:32%;
-    left:63%;
-    font-size:5.5rem;
+  .lp {
+    top: 32%;
+    left: 63%;
+    font-size: 5.5rem;
   }
-  .rp{
-    top:5.5%;
-    left:17%;
-    font-size:5.5rem;
+  .rp {
+    top: 5.5%;
+    left: 17%;
+    font-size: 5.5rem;
   }
 
-
-
-}
-@media screen and (max-width: 900px) {
   .gallery-section {
     display: none;
   }
@@ -352,13 +334,11 @@
   .gallery-mobile div {
     margin-bottom: 60px;
   }
-  .gal-mob-img{
-    width:70%;
+  .gal-mob-img {
+    width: 70%;
   }
 }
 
-  
-  /* .gallery-mobile img {
+/* .gallery-mobile img {
     filter: drop-shadow(5px 10px 10px #68687e);
   } */
-
