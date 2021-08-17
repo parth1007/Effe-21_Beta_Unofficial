@@ -4,11 +4,11 @@ const slideRight = document.querySelector(".right-slide");
 
 const galleryContent = {
   headingLeft: [
-    "Left - 1. Neeti Mohan",
-    "Left - 2. Neeti Mohan",
-    "Left - 3. Neeti Mohan",
-    "Left - 4.Neeti Mohan",
-    "Left - 5. Neeti Mohan",
+    "Mariana bo",
+    "Neeti Mohan",
+    "Anubhav Singh Bassi",
+    "Ritviz",
+    "When Chai met Toast",
   ],
   imagePathLeft: [
     "./img/effe/images/gallery/neeti4.JPG",
@@ -17,13 +17,13 @@ const galleryContent = {
     "./img/effe/images/gallery/neeti4.JPG",
     "./img/effe/images/gallery/neeti4.JPG",
   ],
-  paragraphLeft: ["2020", "2020", "2020", "2020", "2020"],
+  paragraphLeft: ["2020", "2019", "2019", "2018", "2018"],
   headingRight: [
-    "Right -1.  Neeti Mohan",
-    "Right -2. Neeti Mohan",
-    "Right -3.  Neeti Mohan",
-    "Right -4.  Neeti Mohan",
-    "Right -5.  Neeti Mohan",
+    "Vishal Mishra",
+    "Farhan Akhtar",
+    "Akash Gupta",
+    "The Local Train",
+    "Zephyrtone",
   ],
   imagePathRight: [
     "./img/effe/images/gallery/neeti4.JPG",
@@ -33,7 +33,7 @@ const galleryContent = {
     "./img/effe/images/gallery/neeti4.JPG",
   ],
 
-  paragraphRight: ["2020", "2020", "2020", "2020", "2020"],
+  paragraphRight: ["2020", "2017", "2018", "2018", "2018"],
 };
 
 for (let i = galleryContent.headingLeft.length - 1; i >= 0; --i) {
@@ -42,9 +42,9 @@ for (let i = galleryContent.headingLeft.length - 1; i >= 0; --i) {
   <div class ="gal-card" ${
     i % 2 === 0
       ? 'style="background-color: #061125"'
-      : 'style="background-color: #444444"'
+      : 'style="background-color: #444444 "'
   }>
-  <h2 class ="gal-heading lh"> ${galleryContent.headingLeft[i]}</h2>
+  <h2 class ="gal-heading lh lh${i+1}"> ${galleryContent.headingLeft[i]}</h2>
   <p class ="gal-p lp">${galleryContent.paragraphLeft[i]}</p>
   
   <img class ="gal-img" src="${galleryContent.imagePathLeft[i]}"  />
@@ -57,10 +57,10 @@ for (let i = 0; i < galleryContent.headingRight.length; ++i) {
 
   <div class="gal-card"  ${
     i % 2 === 0
-      ? 'style="background-color: #444444"'
+      ? 'style="animation: col-change 1.5s linear; animation-fill-mode: forwards;"'
       : '"style="background-color: #061125"'
   }>
-  <h2 class="gal-heading rh"> ${galleryContent.headingRight[i]}</h2>
+  <h2 class="gal-heading rh rh${i+1}"> ${galleryContent.headingRight[i]}</h2>
   <p class="gal-p rp ">${galleryContent.paragraphRight[i]}</p>
   <img class="gal-img gal-img-right" src="${
     galleryContent.imagePathRight[i]
@@ -76,12 +76,12 @@ for (let i = 0; i < galleryContent.headingLeft.length; ++i) {
         <div >      
           <h2>${galleryContent.headingLeft[i]}</h2>
           <p>${galleryContent.paragraphLeft[i]}</p>
-          <img src= '${galleryContent.imagePathLeft[i]}'/>
+          <img src= '${galleryContent.imagePathLeft[i]}' class="gal-mob-img"/>
         </div>
         <div>
           <h2>${galleryContent.headingRight[i]}</h2>
           <p>${galleryContent.paragraphRight[i]}</p>
-          <img src= '${galleryContent.imagePathRight[i]}'/>
+          <img src= '${galleryContent.imagePathRight[i]}' class="gal-mob-img"/>
         </div>
       </center>
     `;
