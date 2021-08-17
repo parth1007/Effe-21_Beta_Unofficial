@@ -3,81 +3,86 @@ const slideLeft = document.querySelector(".left-slide");
 const slideRight = document.querySelector(".right-slide");
 
 const galleryContent = {
-  imagePath: [
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
+  headingLeft: [
+    "Left - 1. Neeti Mohan",
+    "Left - 2. Neeti Mohan",
+    "Left - 3. Neeti Mohan",
+    "Left - 4.Neeti Mohan",
+    "Left - 5. Neeti Mohan",
+  ],
+  imagePathLeft: [
     "./img/effe/images/gallery/neeti4.JPG",
     "./img/effe/images/gallery/neeti4.JPG",
     "./img/effe/images/gallery/neeti4.JPG",
     "./img/effe/images/gallery/neeti4.JPG",
     "./img/effe/images/gallery/neeti4.JPG",
   ],
-  heading: [
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
-    "Neeti Mohan",
+  paragraphLeft: ["2020", "2020", "2020", "2020", "2020"],
+  headingRight: [
+    "Right -1.  Neeti Mohan",
+    "Right -2. Neeti Mohan",
+    "Right -3.  Neeti Mohan",
+    "Right -4.  Neeti Mohan",
+    "Right -5.  Neeti Mohan",
   ],
-  paragraph: [
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
-    "2020",
+  imagePathRight: [
+    "./img/effe/images/gallery/neeti4.JPG",
+    "./img/effe/images/gallery/neeti4.JPG",
+    "./img/effe/images/gallery/neeti4.JPG",
+    "./img/effe/images/gallery/neeti4.JPG",
+    "./img/effe/images/gallery/neeti4.JPG",
   ],
+
+  paragraphRight: ["2020", "2020", "2020", "2020", "2020"],
 };
 
-for (let i = 0; i < galleryContent.imagePath.length; ++i) {
-  galleryMobile.innerHTML += `
-    <div >
-      <center>
-          <h2>${i + 1} ${galleryContent.heading[i]}</h2>
-          <p>${galleryContent.paragraph[i]}</p>
-          <img src= '${galleryContent.imagePath[i]}'/>
-      </center>
-    </div>
-    `;
-}
-
-for (let i = galleryContent.imagePath.length / 2 - 1; i >= 0; --i) {
+for (let i = galleryContent.headingLeft.length - 1; i >= 0; --i) {
   slideLeft.innerHTML += `
 
-  <div class ="gal-card ld${i + 1}" style="background-color: #061125">
-  <h2 class ="gal-heading lh${i + 1}">${i + 1}. ${
-    galleryContent.heading[i]
-  }</h2>
-  <p class ="gal-p lp${i + 1}">${galleryContent.paragraph[i]}</p>
+  <div class ="gal-card" ${
+    i % 2 === 0
+      ? 'style="background-color: #061125"'
+      : 'style="background-color: #444444"'
+  }>
+  <h2 class ="gal-heading lh"> ${galleryContent.headingLeft[i]}</h2>
+  <p class ="gal-p lp">${galleryContent.paragraphLeft[i]}</p>
   
-  <img class ="gal-img" src="${galleryContent.imagePath[i]}"  />
+  <img class ="gal-img" src="${galleryContent.imagePathLeft[i]}"  />
 </div>
 `;
 }
 
-for (let i = 0; i < galleryContent.imagePath.length / 2; ++i) {
+for (let i = 0; i < galleryContent.headingRight.length; ++i) {
   slideRight.innerHTML += `
 
-  <div class="gal-card rd${i + 1}" style="background-color: #444444">
-  <h2 class="gal-heading rh${i + 1} in_view_right">${i + 1}. ${
-    galleryContent.heading[i]
-  }</h2>
-  <p class="gal-p rp${i + 1} in_view_right-p">${galleryContent.paragraph[i]}</p>
-  <img class="gal-img gal-img-right" src="${galleryContent.imagePath[i]}"  />
+  <div class="gal-card"  ${
+    i % 2 === 0
+      ? 'style="background-color: #444444"'
+      : '"style="background-color: #061125"'
+  }>
+  <h2 class="gal-heading rh"> ${galleryContent.headingRight[i]}</h2>
+  <p class="gal-p rp ">${galleryContent.paragraphRight[i]}</p>
+  <img class="gal-img gal-img-right" src="${
+    galleryContent.imagePathRight[i]
+  }"  />
 </div>
 
 `;
+}
+
+for (let i = 0; i < galleryContent.headingLeft.length; ++i) {
+  galleryMobile.innerHTML += `
+      <center>
+        <div >      
+          <h2>${galleryContent.headingLeft[i]}</h2>
+          <p>${galleryContent.paragraphLeft[i]}</p>
+          <img src= '${galleryContent.imagePathLeft[i]}'/>
+        </div>
+        <div>
+          <h2>${galleryContent.headingRight[i]}</h2>
+          <p>${galleryContent.paragraphRight[i]}</p>
+          <img src= '${galleryContent.imagePathRight[i]}'/>
+        </div>
+      </center>
+    `;
 }
