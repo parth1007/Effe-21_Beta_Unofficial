@@ -74,14 +74,16 @@ for (let i = 0; i < galleryContent.headingLeft.length; ++i) {
   galleryMobile.innerHTML += `
       <center>
         <div >      
-          <h2>${galleryContent.headingLeft[i]}</h2>
-          <p>${galleryContent.paragraphLeft[i]}</p>
+          <h2 class="mob-h">${galleryContent.headingLeft[i]}</h2>
           <img src= '${galleryContent.imagePathLeft[i]}' class="gal-mob-img"/>
+          <p class="mob-p">${galleryContent.paragraphLeft[i]}</p>
+
         </div>
         <div>
-          <h2>${galleryContent.headingRight[i]}</h2>
-          <p>${galleryContent.paragraphRight[i]}</p>
+          <h2 class="mob-h">${galleryContent.headingRight[i]}</h2>
           <img src= '${galleryContent.imagePathRight[i]}' class="gal-mob-img"/>
+          <p class="mob-p">${galleryContent.paragraphRight[i]}</p>
+
         </div>
       </center>
     `;

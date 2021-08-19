@@ -334,8 +334,7 @@ img {
   grid-template-rows: 120px 60px 40px;
   margin-bottom: 30px;
   border-radius: 10%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 100%);
-  backdrop-filter: blur(9px);
+  
 }
 
 .sponsor-card:nth-child(1) {
