@@ -11,11 +11,11 @@ const galleryContent = {
     "When Chai met Toast",
   ],
   imagePathLeft: [
+    "./img/effe/images/gallery/mariana.jpg",
     "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
+    "./img/effe/images/gallery/bassi2.JPG",
+    "./img/effe/images/gallery/ritviz.jpg",
+    "./img/effe/images/gallery/chai2.JPG",
   ],
   paragraphLeft: ["2020", "2019", "2019", "2018", "2018"],
   headingRight: [
@@ -26,11 +26,11 @@ const galleryContent = {
     "Zephyrtone",
   ],
   imagePathRight: [
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
-    "./img/effe/images/gallery/neeti4.JPG",
+    "./img/effe/images/gallery/vishalM.jpeg",
+    "./img/effe/images/gallery/farhan.jpg",
+    "./img/effe/images/gallery/comedy1.jpg",
+    "./img/effe/images/gallery/gal6.2.jpg",
+    "./img/effe/images/gallery/zephyrtone.jpg",
   ],
 
   paragraphRight: ["2020", "2017", "2018", "2018", "2018"],
